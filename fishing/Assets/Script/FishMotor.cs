@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 ///<summary>
-///鱼移动（随机速度、随机位置）、旋转、咬钩、受惊
+///鱼运动类：移动（随机速度、随机位置）、旋转
 ///</summary>
 public class FishMotor : MonoBehaviour
 {
@@ -19,10 +19,13 @@ public class FishMotor : MonoBehaviour
     private float startTime;
     public float timeInterval = 5;
 
-
-    private void Update()
+    private void Start()
     {
-        
+        wayPoint = transform.parent.GetComponentInChildren<WayPoint>().wayPoint;
+    }
+
+    public void Pathfinding()
+    {
         if (startTime < Time.time)
         {
             GenerateRandomSpeedAndIndex();
@@ -33,12 +36,12 @@ public class FishMotor : MonoBehaviour
         MoveToTargetPoint(currentIndex, speed);
     }
 
-    private int RandomSelectWayPoint()
+    public int RandomSelectWayPoint()
     {
         return Random.Range(0, wayPoint.Length); 
     }
 
-    private void GenerateRandomSpeedAndIndex()
+    public void GenerateRandomSpeedAndIndex()
     {
         while (randomIndex == currentIndex)
         {
@@ -49,12 +52,12 @@ public class FishMotor : MonoBehaviour
         speed = Random.Range(minSpeed, maxSpeed);
     }
 
-    private void MoveToTargetPoint(int index, float speed)
+    public void MoveToTargetPoint(int index, float speed)
     {
         this.transform.Translate(wayPoint[index].position * Time.deltaTime * speed);
     }
 
-    private void RotateToTargetPoint(Vector3 targetPoint, float speed)
+    public void RotateToTargetPoint(Vector3 targetPoint, float speed)
     {
         Quaternion dir = Quaternion.LookRotation(targetPoint - this.transform.position);
        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, dir, speed);
