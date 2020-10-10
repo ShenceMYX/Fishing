@@ -63,10 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\FishAI.cs" />
-    <Compile Include="Assets\Script\FishMotor.cs" />
-    <Compile Include="Assets\Script\FishSpawn.cs" />
-    <Compile Include="Assets\Script\WayPoint.cs" />
+    <Compile Include="Assets\Script\Fish\FishAI.cs" />
+    <Compile Include="Assets\Script\Fish\FishInfo.cs" />
+    <Compile Include="Assets\Script\Fish\FishMotor.cs" />
+    <Compile Include="Assets\Script\Fish\FishSpawn.cs" />
+    <Compile Include="Assets\Script\Fish\WayPoint.cs" />
+    <Compile Include="Assets\Script\UI\ShowFishInfo.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/maoyuxuan/Documents/Fishing/fishing/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
