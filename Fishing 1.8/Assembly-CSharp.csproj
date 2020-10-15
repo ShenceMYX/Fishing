@@ -38,10 +38,12 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Fish\FishInfo.cs" />
      <Compile Include="Assets\Script\Fish\WayPoint.cs" />
+     <Compile Include="Assets\Script\Self\Camera.cs" />
      <Compile Include="Assets\Script\Fish\FishSpawn.cs" />
      <Compile Include="Assets\Script\FishToggleTrigger.cs" />
      <Compile Include="Assets\Script\Fish\FishMotor.cs" />
      <Compile Include="Assets\Script\UI\ShowFishInfo.cs" />
+     <Compile Include="Assets\Script\Self\Self.cs" />
      <Compile Include="Assets\Script\Fish\FishAI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -577,32 +579,62 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>D:/CityU/VR Comp/Fishing 1.8/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/Fishing 1.8/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
