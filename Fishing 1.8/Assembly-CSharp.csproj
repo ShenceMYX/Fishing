@@ -45,6 +45,8 @@
      <Compile Include="Assets\Script\UI\ShowFishInfo.cs" />
      <Compile Include="Assets\Script\Self\Self.cs" />
      <Compile Include="Assets\Script\Fish\FishAI.cs" />
+     <Compile Include="Assets\Script\Self\Hand.cs" />
+     <Compile Include="Assets\Script\Self\Oar.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
