@@ -6,12 +6,12 @@ public class Self : MonoBehaviour
 {
 	public GameObject cam;
 	private float speed = 1f;
-	private float direction = 0;
 	private float rotationSpeed = 25;
-	private float cameraDist = 3f;
+	private Rigidbody rb;
 	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
+		rb = GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
