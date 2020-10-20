@@ -27,12 +27,10 @@ public class VDetector : MonoBehaviour
 	}
 
 	private void OnTriggerEnter (Collider other) {
-		Debug.Log("entered");
 		isEntered = true;
 	}
 
 	private void OnTriggerExit (Collider other) {
-		Debug.Log("exited");
 		isEntered = false;
 	}
 

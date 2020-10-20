@@ -24,19 +24,25 @@ public class Hand : MonoBehaviour
 
 		transform.Translate(transH, transJ, transV);
 
-		if (Input.GetMouseButtonDown(0)) {
+		/*
+		if (GetGrab()) {
 			if (isGrabbed == true) {
 				sj.spring = 0f;
 				isGrabbed = false;
 			}
 			else {
-				sj.spring = 7.5f;
+				sj.spring = 2f;
 				isGrabbed = true;
 			}
 		}
+		*/
 
 		if (GetGrab()) {
-			Debug.Log("Grab " + handType);
+			sj.spring = 4f;
+			Debug.Log("Grabbed");
+		}
+		else {
+			sj.spring = 0f;
 		}
 
 	}
