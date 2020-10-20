@@ -11,7 +11,7 @@ public class Right_oar : MonoBehaviour
 	private int isInWater = 0; //0 not in water, 1 forward, 2 backward
 	void Start()
 	{
-				
+		this.transform.SetParent(rightHand.transform, false);
 	}
 
 	void Update()

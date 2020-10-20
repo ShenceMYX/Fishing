@@ -36,19 +36,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\Self\Left_oar.cs" />
      <Compile Include="Assets\Script\Fish\FishInfo.cs" />
      <Compile Include="Assets\Script\Self\Self_test.cs" />
      <Compile Include="Assets\Script\Fish\WayPoint.cs" />
      <Compile Include="Assets\Script\Self\Camera.cs" />
+     <Compile Include="Assets\Script\Self\VDetector.cs" />
      <Compile Include="Assets\Script\Fish\FishSpawn.cs" />
      <Compile Include="Assets\Script\FishToggleTrigger.cs" />
      <Compile Include="Assets\Script\Self\Hand.cs" />
      <Compile Include="Assets\Script\Fish\FishMotor.cs" />
      <Compile Include="Assets\Script\UI\ShowFishInfo.cs" />
-     <Compile Include="Assets\Script\Self\Self.cs" />
      <Compile Include="Assets\Script\Fish\FishAI.cs" />
      <Compile Include="Assets\Script\Self\Right_oar.cs" />
+     <Compile Include="Assets\Script\Self\Left_oar.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Left_oar : MonoBehaviour
 {
-	public GameObject rightHand;
+	public GameObject leftHand;
 	private bool isHandEntered = false;
 	private GameObject entered;
 	private bool isGrabbed = false;
 	private int isInWater = 0; //0 not in water, 1 forward, 2 backward
 	void Start()
 	{
-				
+		this.transform.SetParent(leftHand.transform, false);
 	}
 
 	void Update()
@@ -26,7 +26,7 @@ public class Left_oar : MonoBehaviour
 
 		
 		if (Input.GetMouseButtonDown(0)) {
-			if (!isGrabbed && isHandEntered && entered == rightHand) {
+			if (!isGrabbed && isHandEntered && entered == leftHand) {
 				this.transform.SetParent(entered.transform);
 				isGrabbed = true;
 			}
