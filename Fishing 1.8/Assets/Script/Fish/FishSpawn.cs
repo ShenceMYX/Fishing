@@ -17,6 +17,9 @@ public class FishSpawn : MonoBehaviour
     public int maxCount = 10;
     private int currentCount;
 
+    public int randomFishTypeIndex;
+    public int randomSpawnPointIndex;
+
     private void Update()
     {
         InitializeRandomFish();
@@ -26,8 +29,8 @@ public class FishSpawn : MonoBehaviour
     {
         if (startTime < Time.time && currentCount < maxCount) 
         {
-            int randomFishTypeIndex = Random.Range(0, fishType.Length);
-            int randomSpawnPointIndex = Random.Range(0, spawnPoint.Length);
+            randomFishTypeIndex = Random.Range(0, fishType.Length);
+            randomSpawnPointIndex = Random.Range(0, spawnPoint.Length);
             Instantiate(fishType[randomFishTypeIndex], spawnPoint[randomSpawnPointIndex].position, Quaternion.identity);
             currentCount++;
             startTime = Time.time + spawnTime;

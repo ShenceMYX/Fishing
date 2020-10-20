@@ -1,0 +1,37 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Fish/FishAI.cs">
+    <Files>
+      <File FileName="Assets/Script/Fish/FishMotor.cs" Line="86" Column="41" />
+      <File FileName="Assets/Script/Fish/FishSpawn.cs" />
+      <File FileName="Assets/Script/Fish/FishAI.cs" Line="91" Column="6" />
+      <File FileName="Assets/Script/UI/ShowFishInfo.cs" />
+      <File FileName="Assets/Script/Fish/WayPoint.cs" />
+      <File FileName="Assets/Script/Fish/FishInfo.cs" />
+      <File FileName="Assets/test.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Fishing 1.8" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Script" expanded="True">
+                  <Node name="Fish" expanded="True">
+                    <Node name="FishAI.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1e1ef1cc-bd6a-4a96-bc7e-901d67f03769" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

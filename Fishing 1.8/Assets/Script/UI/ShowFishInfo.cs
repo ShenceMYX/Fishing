@@ -12,15 +12,20 @@ public class ShowFishInfo : MonoBehaviour
     private Text fishName;
     private Text fishWeight;
 
-    private void Start()
+    private void Update()
     {
-        fishName = transform.GetChild(0).GetComponent<Text>();
-        fishWeight=transform.GetChild(1).GetComponent<Text>();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.transform.parent.gameObject.SetActive(false);
+        }
     }
 
     public void ShowFishInfoUI(string name, float weight)
 	{
+        fishName = transform.GetChild(1).GetComponent<Text>();
+        fishWeight = transform.GetChild(2).GetComponent<Text>();
         fishName.text = name;
         fishWeight.text = weight.ToString();
 	}
+
 }
