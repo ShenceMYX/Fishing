@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,29 +12,37 @@ public class FishAI : MonoBehaviour
 {
     private FishMotor motor;
     private FishInfo info;
-    private State state = State.pathfinding;
+    public State state = State.pathfinding;
 
     public float accelerate = 2;
 
     private float startBiteTime;
-    private float startScaredTime;
+    public float startScaredTime;
 
     public float scaredTime = 4f;
 
     public float scaredSiwimmingSpeed = 4;
+    public float scaredRotatingSpeed = 0.5f;
+
+    public float moveAwaySpeed = 2;
+    public float moveAwayRotateSpeed = 0.2f;
 
     private GameObject fishInfoUI;
 
-    private Collider boatCollider;
+    private Collider otherCollider;
 
-    enum State
+    private bool nearBoat;
+
+    public enum State
     {
         //寻路状态
         pathfinding,
         //咬钩状态
         biting,
         //受惊状态
-        scared
+        scared,
+        //避开附近的鱼
+        moveAway
     }
 
     private void Start()
@@ -53,21 +62,30 @@ public class FishAI : MonoBehaviour
                 Bite();
                 break;
             case State.scared:
-                Scared();
+                Scared(scaredSiwimmingSpeed, scaredRotatingSpeed);
+                break;
+            case State.moveAway:
+                Scared(moveAwaySpeed, moveAwayRotateSpeed);
                 break;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        otherCollider = other;
         switch (other.tag)
         {
             case "rod":
                 state = State.biting;
                 break;
             case "boat":
-                boatCollider = other;
+                nearBoat = true;
+                startScaredTime = scaredTime;
                 state = State.scared;
+                break;
+            case "fish":
+                startScaredTime = scaredTime;
+                state = State.moveAway;
                 break;
         }
     }
@@ -79,32 +97,36 @@ public class FishAI : MonoBehaviour
         if (startBiteTime > info.bitingTime)
         {
             state = State.scared;
+            startBiteTime = 0;
         }
-        else
+        else if(startBiteTime < info.bitingTime && Input.GetMouseButtonDown(0))
         {
             //钓鱼成功
             //显示钓到鱼的信息
-            fishInfoUI = GameObject.FindGameObjectWithTag("FishInfoUI");
+            fishInfoUI = GameObject.FindGameObjectWithTag("FishInfoUI").transform.GetChild(0).gameObject;
             fishInfoUI.SetActive(true);
             fishInfoUI.GetComponent<ShowFishInfo>().ShowFishInfoUI(info.name, info.fishWeight);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 
-    private void Scared()
+    private void Scared(float moveSpeed, float rotateSpeed)
     {
-        startScaredTime = scaredTime;
         startScaredTime -= Time.deltaTime;
-        this.transform.Translate((transform.position - boatCollider.transform.position) * scaredSiwimmingSpeed * Time.deltaTime);
+        motor.MoveToTargetPoint(transform.position + transform.position - otherCollider.transform.position, moveSpeed, rotateSpeed);
+        if (startScaredTime < 0 && !nearBoat) 
+        {
+            state = State.pathfinding;
+            startScaredTime = scaredTime;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         //超过受惊时间并且离开小船碰撞范围继续寻路
-        if (other.tag == "boat" && scaredTime < 0)
+        if (other.tag == "boat" )
         {
-            state = State.pathfinding;
-            startScaredTime = scaredTime;
+            nearBoat = false;
         }
     }
 }
