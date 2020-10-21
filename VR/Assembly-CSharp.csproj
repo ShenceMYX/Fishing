@@ -37,20 +37,29 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-     <Compile Include="Assets\Scripts\Self\VDetector.cs" />
-     <Compile Include="Assets\Scripts\Self\Hand.cs" />
-     <Compile Include="Assets\Scripts\Self\Self_test.cs" />
      <Compile Include="Assets\Scripts\Fish\FishInfo.cs" />
      <Compile Include="Assets\Scripts\Self\Right_oar.cs" />
+     <Compile Include="Assets\Scripts\Self\Self_test.cs" />
      <Compile Include="Assets\Scripts\Fish\WayPoint.cs" />
      <Compile Include="Assets\Scripts\Self\Camera.cs" />
+     <Compile Include="Assets\Scripts\Self\VDetector.cs" />
      <Compile Include="Assets\Scripts\Fish\FishSpawn.cs" />
      <Compile Include="Assets\Scripts\FishToggleTrigger.cs" />
+     <Compile Include="Assets\Scripts\Self\Hand.cs" />
      <Compile Include="Assets\Scripts\Fish\FishMotor.cs" />
+     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\Scripts\Self\Left_oar.cs" />
      <Compile Include="Assets\Scripts\UI\ShowFishInfo.cs" />
      <Compile Include="Assets\Scripts\Fish\FishAI.cs" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\ScratchedWood.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\PaintedWall.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Stone Tile.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Lino.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Processed Leather.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Cloth.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Carpet.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Concrete Wall.shader" />
+     <None Include="Assets\Nice Materials Pack 2\Shaders\Stained Leather.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -241,7 +250,7 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -589,88 +598,88 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.OpenVR">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.XR.OpenVR.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.XR.OpenVR.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.OpenVR.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.XR.OpenVR.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.XR.OpenVR.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

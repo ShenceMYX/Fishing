@@ -5,8 +5,8 @@ using UnityEngine;
 public class Self_test : MonoBehaviour
 {
 	private float startTime;
-	private float forceSize = 150f;
-	private float torqueSize = 50f;
+	private float forceSize = 10000f;
+	private float torqueSize = 10f;
 	private Rigidbody rb;
 	public GameObject boat;
 	public GameObject leftHand;
@@ -15,26 +15,50 @@ public class Self_test : MonoBehaviour
 	public GameObject rightOar;
 	private Rigidbody rbLeft;
 	private Rigidbody rbRight;
+	private float leftPrevZ;
+	private float rightPrevZ; 
+	private float threshold = 0.01f;
+	private float currentAngle = 180;
+	Quaternion target;
 	void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
 		rb = this.GetComponent<Rigidbody>();
 		rbLeft = leftHand.GetComponent<Rigidbody>();
 		rbRight = rightHand.GetComponent<Rigidbody>();
+		leftPrevZ = leftHand.transform.localPosition.z;
+		rightPrevZ = rightHand.transform.localPosition.z;
+		target = transform.rotation;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		bool leftGrabbed = leftHand.GetComponent<Hand>().GetGrab();
-		bool rightGrabbed = rightHand.GetComponent<Hand>().GetGrab();
-		Vector3 leftV = leftOar.GetComponent<VDetector>().getV();
-		Vector3 rightV = rightOar.GetComponent<VDetector>().getV();
-		float lV = (leftGrabbed ? Vector3.Dot(leftV, this.transform.forward) : 0f);
-		float rV = (rightGrabbed ? Vector3.Dot(rightV, this.transform.forward) : 0f);
-		Debug.DrawLine(this.transform.position, this.transform.position + this.transform.forward, Color.yellow, 2.5f);
-		addForce(lV + rV);
-		addTorque(lV - rV);
+		bool leftGrabbed = (leftHand.GetComponent<Hand>().GetGrab() && leftHand.transform.localPosition.y > 1.2);
+		bool rightGrabbed = (rightHand.GetComponent<Hand>().GetGrab() && rightHand.transform.localPosition.y > 1.2);
+		//Debug.Log(rightHand.transform.localPosition.y);
+		Vector3 leftV = rbLeft.velocity;
+		Vector3 rightV = rbRight.velocity;
+		float lV = (leftGrabbed ? leftHand.transform.localPosition.z - leftPrevZ : 0f);
+		float rV = (rightGrabbed ? rightHand.transform.localPosition.z - rightPrevZ : 0f);
+		lV = (Mathf.Abs(lV) > threshold ? lV : 0);
+		rV = (Mathf.Abs(rV) > threshold ? rV : 0);
+		//Debug.Log(lV + " " + rV);
+		if (lV > 0 && rV > 0) {
+			addForce(lV + rV);
+		}
+		else if (lV < 0 && rV < 0) {
+			addForce(lV + rV);
+		}
+		else if (lV > 0 || rV < 0) {
+			addTorque(lV - rV);
+		}
+		else if (rV > 0 || lV < 0) {
+			addTorque(lV - rV);
+		}
+		leftPrevZ = leftHand.transform.localPosition.z;
+		rightPrevZ = rightHand.transform.localPosition.z;
+		transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 10f);
 	}
 
 	public void addForce(float df) {
@@ -42,6 +66,8 @@ public class Self_test : MonoBehaviour
 	}
 
 	public void addTorque(float df) {
-		rb.AddTorque(transform.up * df * torqueSize);
+		currentAngle += df * torqueSize;
+		currentAngle = Mathf.Repeat(currentAngle, 360);
+		target = Quaternion.Euler(0,currentAngle,0);
 	}
 }

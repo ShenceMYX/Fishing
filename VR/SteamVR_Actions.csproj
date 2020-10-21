@@ -245,11 +245,11 @@
     <Reference Include="UnityEditor.UWP.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.NRefactory">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/PackageCache/com.unity.render-pipelines.core@8.2.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
     <Reference Include="Valve.Newtonsoft.Json">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/PackageCache/com.unity.render-pipelines.core@8.2.0/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -597,10 +597,10 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>D:/CityU/VR Comp/learning/VR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>D:/CityU/VR Comp/Fishing/VR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

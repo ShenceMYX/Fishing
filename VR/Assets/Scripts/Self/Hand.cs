@@ -39,7 +39,6 @@ public class Hand : MonoBehaviour
 
 		if (GetGrab()) {
 			sj.spring = 4f;
-			Debug.Log("Grabbed");
 		}
 		else {
 			sj.spring = 0f;
