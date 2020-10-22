@@ -51,15 +51,7 @@
      <Compile Include="Assets\Scripts\Self\Left_oar.cs" />
      <Compile Include="Assets\Scripts\UI\ShowFishInfo.cs" />
      <Compile Include="Assets\Scripts\Fish\FishAI.cs" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\ScratchedWood.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\PaintedWall.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Stone Tile.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Lino.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Processed Leather.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Cloth.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Carpet.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Concrete Wall.shader" />
-     <None Include="Assets\Nice Materials Pack 2\Shaders\Stained Leather.shader" />
+     <Compile Include="Assets\Scripts\Self\Hook.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

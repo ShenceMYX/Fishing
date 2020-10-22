@@ -26,6 +26,7 @@ public class FishAI : MonoBehaviour
 
     public float moveAwaySpeed = 2;
     public float moveAwayRotateSpeed = 0.2f;
+	public GameObject fishSpawn;
 
     private GameObject fishInfoUI;
 
@@ -83,6 +84,11 @@ public class FishAI : MonoBehaviour
                 startScaredTime = scaredTime;
                 state = State.scared;
                 break;
+			case "island":
+                nearBoat = true;
+                startScaredTime = scaredTime;
+                state = State.scared;
+                break;
             case "fish":
                 startScaredTime = scaredTime;
                 state = State.moveAway;
@@ -103,9 +109,10 @@ public class FishAI : MonoBehaviour
         {
             //钓鱼成功
             //显示钓到鱼的信息
-            fishInfoUI = GameObject.FindGameObjectWithTag("FishInfoUI").transform.GetChild(0).gameObject;
-            fishInfoUI.SetActive(true);
-            fishInfoUI.GetComponent<ShowFishInfo>().ShowFishInfoUI(info.name, info.fishWeight);
+           // fishInfoUI = GameObject.FindGameObjectWithTag("FishInfoUI").transform.GetChild(0).gameObject;
+           // fishInfoUI.SetActive(true);
+            //fishInfoUI.GetComponent<ShowFishInfo>().ShowFishInfoUI(info.name, info.fishWeight);
+			fishSpawn.GetComponent<FishSpawn>().currentCount--;
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
@@ -113,9 +120,12 @@ public class FishAI : MonoBehaviour
     private void Scared(float moveSpeed, float rotateSpeed)
     {
         startScaredTime -= Time.deltaTime;
-        motor.MoveToTargetPoint(transform.position + transform.position - otherCollider.transform.position, moveSpeed, rotateSpeed);
+		Vector3 target = transform.position + transform.position - otherCollider.transform.position;
+		target = new Vector3(target.x, target.y, target.z);
+        motor.MoveToTargetPoint(target , moveSpeed, rotateSpeed);
         if (startScaredTime < 0 && !nearBoat) 
         {
+			otherCollider = null;
             state = State.pathfinding;
             startScaredTime = scaredTime;
         }

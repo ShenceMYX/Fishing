@@ -58,6 +58,8 @@ public class FishMotor : MonoBehaviour
             startMovingTime = 0;
         }
 
+		//this.transform.Translate(new Vector3(0,this.transform.position.y,0));
+
     }
 
     public int RandomSelectWayPoint()
@@ -83,8 +85,9 @@ public class FishMotor : MonoBehaviour
 
     public void RotateToTargetPoint(Vector3 targetPoint, float speed)
     {
-        //transform.LookAt(targetPoint);
-        Quaternion dir = Quaternion.LookRotation(targetPoint - this.transform.position);
+		Vector3 target = targetPoint - this.transform.position;
+		target = new Vector3(target.x, 0, target.y);
+        Quaternion dir = Quaternion.LookRotation(target);
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation, dir, speed);
     }
 }

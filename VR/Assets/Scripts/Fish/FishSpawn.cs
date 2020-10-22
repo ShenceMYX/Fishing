@@ -15,7 +15,7 @@ public class FishSpawn : MonoBehaviour
     private float startTime;
 
     public int maxCount = 10;
-    private int currentCount;
+    public int currentCount;
 
     public int randomFishTypeIndex;
     public int randomSpawnPointIndex;
