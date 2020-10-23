@@ -6,10 +6,13 @@ using Valve.VR;
 public class Hand : MonoBehaviour
 {
 	public SpringJoint sj;
-	private bool isGrabbed = true;
 	private float speed = 1f;
 	public SteamVR_Input_Sources handType;
 	public SteamVR_Action_Boolean grabAction;
+
+	void Start(){
+		SteamVR_Fade.Start(Color.clear, 1, true);
+	}
 
 	void Update()
 	{

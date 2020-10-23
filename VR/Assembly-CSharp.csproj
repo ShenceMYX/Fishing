@@ -36,10 +36,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Self\Hook.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\Fish\FishInfo.cs" />
      <Compile Include="Assets\Scripts\Self\Right_oar.cs" />
      <Compile Include="Assets\Scripts\Self\Self_test.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Fish\WayPoint.cs" />
      <Compile Include="Assets\Scripts\Self\Camera.cs" />
      <Compile Include="Assets\Scripts\Self\VDetector.cs" />
@@ -51,7 +53,8 @@
      <Compile Include="Assets\Scripts\Self\Left_oar.cs" />
      <Compile Include="Assets\Scripts\UI\ShowFishInfo.cs" />
      <Compile Include="Assets\Scripts\Fish\FishAI.cs" />
-     <Compile Include="Assets\Scripts\Self\Hook.cs" />
+     <Compile Include="Assets\Scripts\Fish\FishHooked.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialFish.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

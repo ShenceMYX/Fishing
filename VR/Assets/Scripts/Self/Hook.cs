@@ -1,27 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Hook : MonoBehaviour
 {
     public float speed = 10.0f;
     public float rotationSpeed = 100.0f;
+	public SteamVR_Input_Sources handType;
+	public SteamVR_Action_Boolean hookAction;
+	public GameObject hookedFish = null;
+	public GameObject rod;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-
-        transform.Translate(0, 0, translation);
-
-        transform.Rotate(0, rotation, 0);
+        if (hookAction.GetState(handType) && hookedFish != null) {
+			Debug.Log("hooked");
+			Vector3 hookVelocity = rod.GetComponent<Teleporter>().getHookVelocity();
+			hookedFish.GetComponent<TutorialFish>().popOut(hookVelocity);
+			rod.GetComponent<Teleporter>().hooked();
+		}
     }
+	private void OnTriggerEnter (Collider other) {
+		if (other.tag == "fish" )
+        {
+            hookedFish = other.gameObject;
+        }
+	}
+
+	private void OnTriggerExit (Collider other) {
+		hookedFish = null;
+	}
 }
