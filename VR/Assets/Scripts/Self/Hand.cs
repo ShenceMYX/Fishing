@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public class Hand : MonoBehaviour
@@ -11,7 +12,8 @@ public class Hand : MonoBehaviour
 	public SteamVR_Action_Boolean grabAction;
 
 	void Start(){
-		SteamVR_Fade.Start(Color.clear, 1, true);
+		//SteamVR_Fade.Start(Color.white, 0f, true);
+		//StartCoroutine(switchScene());
 	}
 
 	void Update()
@@ -51,5 +53,11 @@ public class Hand : MonoBehaviour
 
 	public bool GetGrab() {
 		return grabAction.GetState(handType);
+	}
+
+	private IEnumerator switchScene() {
+		SteamVR_Fade.Start(Color.clear, 1.5f, true);
+		yield return new WaitForSeconds(1.5f);
+		SceneManager.LoadScene(1);
 	}
 }

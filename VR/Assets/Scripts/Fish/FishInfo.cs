@@ -7,7 +7,21 @@ using UnityEngine;
 ///</summary>
 public class FishInfo : MonoBehaviour
 {
-    public string fishName = "Golden Fish";
-    public float fishWeight = 1;
-    public float bitingTime = 5;
+    private string fishName = "Golden Fish";
+    private float fishWeight = 1;
+    private float dragTime = 5;
+	private float dragPower = 5;
+
+	public string getName(){
+		return fishName;
+	}
+	public float getWeight(){
+		return fishWeight;
+	}
+	public float getDragTime(){
+		return dragTime;
+	}
+	public float getDragPower(){
+		return dragPower;
+	}
 }

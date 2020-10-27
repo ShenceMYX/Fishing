@@ -20,9 +20,8 @@ public class Hook : MonoBehaviour
     {
         if (hookAction.GetState(handType) && hookedFish != null) {
 			Debug.Log("hooked");
-			Vector3 hookVelocity = rod.GetComponent<Teleporter>().getHookVelocity();
-			hookedFish.GetComponent<TutorialFish>().popOut(hookVelocity);
-			rod.GetComponent<Teleporter>().hooked();
+			Vector3 hookVelocity = rod.GetComponent<TutorialHand>().getHookVelocity();
+			//hookedFish.GetComponent<TutorialFish>().popOut(hookVelocity);
 		}
     }
 	private void OnTriggerEnter (Collider other) {

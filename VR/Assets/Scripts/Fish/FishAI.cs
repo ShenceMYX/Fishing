@@ -100,12 +100,12 @@ public class FishAI : MonoBehaviour
     {
         startBiteTime += Time.deltaTime;
         //钓鱼失败 超过咬杆时间
-        if (startBiteTime > info.bitingTime)
+        if (startBiteTime > info.getDragTime())
         {
             state = State.scared;
             startBiteTime = 0;
         }
-        else if(startBiteTime < info.bitingTime && Input.GetMouseButtonDown(0))
+        else if(startBiteTime < info.getDragTime() && Input.GetMouseButtonDown(0))
         {
             //钓鱼成功
             //显示钓到鱼的信息
