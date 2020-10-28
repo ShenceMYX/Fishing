@@ -5,12 +5,10 @@ using Valve.VR;
 
 public class Hook : MonoBehaviour
 {
-    public float speed = 10.0f;
-    public float rotationSpeed = 100.0f;
-	public SteamVR_Input_Sources handType;
-	public SteamVR_Action_Boolean hookAction;
 	public GameObject hookedFish = null;
 	public GameObject rod;
+	private bool sema = false;
+	private bool dropped = false;
     void Start()
     {
         
@@ -18,20 +16,28 @@ public class Hook : MonoBehaviour
 
     void Update()
     {
-        if (hookAction.GetState(handType) && hookedFish != null) {
-			Debug.Log("hooked");
-			Vector3 hookVelocity = rod.GetComponent<TutorialHand>().getHookVelocity();
-			//hookedFish.GetComponent<TutorialFish>().popOut(hookVelocity);
-		}
+
     }
 	private void OnTriggerEnter (Collider other) {
-		if (other.tag == "fish" )
+		if (other.tag == "fish" && dropped && !sema)
         {
+			sema = true;
             hookedFish = other.gameObject;
+			Vector3 hookVelocity = rod.GetComponent<Hand>().getHookVelocity();
+			hookedFish.gameObject.GetComponent<FishAI>().getCaught(rod, hookVelocity);
         }
 	}
 
 	private void OnTriggerExit (Collider other) {
+		sema = false;
 		hookedFish = null;
+	}
+
+	public void dropHook(){
+		dropped = true;
+	}
+
+	public void dragHook(){
+		dropped = false;
 	}
 }

@@ -8,20 +8,21 @@ using UnityEngine;
 public class FishMotor : MonoBehaviour
 {
     public Transform[] wayPoint;
+	private Rigidbody rb;
     private int currentIndex;
     public int randomIndex;
     private float randomMovingTime;
     private float randomWaitingTime;
     private bool moving = true;
 
-    public float maxSpeed = 0.5f;
-    public float minSpeed = 0.1f;
+    private float maxSpeed = 1.2f;
+    private float minSpeed = 0.8f;
     private float speed;
-    public float rotateSpeed = 0.1f;
-    public float minWaitingTime = 3;
-    public float maxWaitingTime = 10;
-    public float minMovingTime = 3;
-    public float maxMovingTime = 10;
+    private float rotateSpeed = 0.1f;
+    private float minWaitingTime = 3;
+    private float maxWaitingTime = 10;
+    private float minMovingTime = 3;
+    private float maxMovingTime = 10;
 
 
     private float startMovingTime;
@@ -30,6 +31,7 @@ public class FishMotor : MonoBehaviour
     private void Start()
     {
         wayPoint = transform.parent.GetComponentInChildren<WayPoint>().wayPoint;
+		rb = GetComponent<Rigidbody>();
     }
 
     public void Pathfinding()
@@ -45,6 +47,8 @@ public class FishMotor : MonoBehaviour
         if (startMovingTime > randomMovingTime)
         {
             moving = false;
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
             randomWaitingTime = Random.Range(minWaitingTime, maxWaitingTime);
             startWaitingTime += Time.deltaTime;
         }
@@ -86,7 +90,7 @@ public class FishMotor : MonoBehaviour
     public void RotateToTargetPoint(Vector3 targetPoint, float speed)
     {
 		Vector3 target = targetPoint - this.transform.position;
-		target = new Vector3(target.x, 0, target.y);
+		target = new Vector3(target.x, 0, target.z);
         Quaternion dir = Quaternion.LookRotation(target);
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation, dir, speed);
     }

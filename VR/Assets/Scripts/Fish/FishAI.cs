@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 ///<summary>
 ///鱼AI类：控制鱼运动、行为
@@ -10,32 +11,30 @@ using UnityEngine;
 
 public class FishAI : MonoBehaviour
 {
+	public GameObject hand;
+	public GameObject lb;
+	public TextMeshPro instruction;
+    private Animator anime;
     private FishMotor motor;
     private FishInfo info;
-    public State state = State.pathfinding;
-
-    public float accelerate = 2;
-
+    private Rigidbody rb;
+    private State state = State.pathfinding;
     private float startBiteTime;
     public float startScaredTime;
-
     public float scaredTime = 4f;
-
     public float scaredSiwimmingSpeed = 4;
     public float scaredRotatingSpeed = 0.5f;
-
     public float moveAwaySpeed = 2;
     public float moveAwayRotateSpeed = 0.2f;
-	public GameObject fishSpawn;
-
-    private GameObject fishInfoUI;
 
     private Collider otherCollider;
+	private Vector3 popV;
 
     private bool nearBoat;
 
-    public enum State
+    private enum State
     {
+		dummy,
         //寻路状态
         pathfinding,
         //咬钩状态
@@ -48,8 +47,10 @@ public class FishAI : MonoBehaviour
 
     private void Start()
     {    
+        rb = GetComponent<Rigidbody>();
         motor = GetComponent<FishMotor>();
         info = GetComponent<FishInfo>();
+        anime = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -76,9 +77,6 @@ public class FishAI : MonoBehaviour
         otherCollider = other;
         switch (other.tag)
         {
-            case "rod":
-                state = State.biting;
-                break;
             case "boat":
                 nearBoat = true;
                 startScaredTime = scaredTime;
@@ -95,36 +93,54 @@ public class FishAI : MonoBehaviour
                 break;
         }
     }
-
-    private void Bite()
+	public void startDrag (Vector3 velocity) {
+		hand.GetComponent<DumHand>().startDragCount();
+		startBiteTime = Time.time;
+        state = State.biting;
+		popV = velocity;
+		Debug.Log("I've been caught");
+	}
+	private void Bite()
     {
-        startBiteTime += Time.deltaTime;
-        //钓鱼失败 超过咬杆时间
-        if (startBiteTime > info.getDragTime())
+		anime.SetBool("eat", true);
+		Debug.Log("biting");
+		lb.GetComponent<LoadingBar>().updateLen(hand.GetComponent<DumHand>().getMovementCount(), info.getDragPower());
+        if (Time.time - startBiteTime > info.getDragTime())
         {
-            state = State.scared;
+            anime.SetBool("success", false);
+            anime.SetBool("eat", false);
+			state = State.scared;
             startBiteTime = 0;
+			hand.GetComponent<DumHand>().endDragCount();
+			lb.GetComponent<LoadingBar>().resetLen();
         }
-        else if(startBiteTime < info.getDragTime() && Input.GetMouseButtonDown(0))
+        else if(hand.GetComponent<DumHand>().getMovementCount() > info.getDragPower())
         {
-            //钓鱼成功
-            //显示钓到鱼的信息
-           // fishInfoUI = GameObject.FindGameObjectWithTag("FishInfoUI").transform.GetChild(0).gameObject;
-           // fishInfoUI.SetActive(true);
-            //fishInfoUI.GetComponent<ShowFishInfo>().ShowFishInfoUI(info.name, info.fishWeight);
-			fishSpawn.GetComponent<FishSpawn>().currentCount--;
-            Destroy(gameObject.transform.parent.gameObject);
+            anime.SetBool("success", true);
+            anime.SetBool("eat", true);
+			state = State.dummy;
+			startBiteTime = 0;
+			popOut(popV);
+			hand.GetComponent<DumHand>().endDragCount();
         }
     }
+	private void popOut(Vector3 velocity) {
+		velocity = -velocity;
+		GetComponent<Rigidbody>().useGravity = true;
+		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+		rb.AddForce(velocity * rb.mass * 5f, ForceMode.Impulse);
+	}
 
     private void Scared(float moveSpeed, float rotateSpeed)
     {
+        anime.SetBool("run", true);
         startScaredTime -= Time.deltaTime;
 		Vector3 target = transform.position + transform.position - otherCollider.transform.position;
 		target = new Vector3(target.x, target.y, target.z);
         motor.MoveToTargetPoint(target , moveSpeed, rotateSpeed);
         if (startScaredTime < 0 && !nearBoat) 
         {
+            anime.SetBool("run", false);
 			otherCollider = null;
             state = State.pathfinding;
             startScaredTime = scaredTime;
@@ -133,10 +149,14 @@ public class FishAI : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //超过受惊时间并且离开小船碰撞范围继续寻路
         if (other.tag == "boat" )
         {
             nearBoat = false;
         }
     }
+
+	public void getCaught(GameObject rod, Vector3 v) {
+		hand = rod;
+		startDrag(v);
+	}
 }
